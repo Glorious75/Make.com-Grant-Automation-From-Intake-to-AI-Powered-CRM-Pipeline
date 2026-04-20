@@ -14,15 +14,14 @@ AI-powered grant intake &amp; eligibility automation system built for TechBridge
 ---
 
 ## 📋 Table of Contents
-
 - [Project Overview](#-project-overview)
-- [System Architecture](#-system-architecture)
-- [Scenario 1 — Eligibility Checker](#-scenario-1--grant-eligibility-checker)
-- [Scenario 2 — Full Application Collector](#-scenario-2--full-application-collector)
 - [Eligibility Criteria](#-eligibility-criteria)
 - [Tech Stack](#-tech-stack)
-- [Key Results](#-key-results)
-- [Screenshots](#-screenshots)
+- [Scenario 1 — Eligibility Checker](#-scenario-1--grant-eligibility-checker)
+- [Scenario 2 — Full Application Collector](#-scenario-2--full-application-collector)
+- [Airtable Database](#-airtable-database)
+- [Monday.com CRM Pipeline](#-mondaycom-crm-pipeline)
+- [Key Benefits for NGOs](#-key-benefits-for-ngos)
 - [Author](#-author)
 - [License](#-license)
 
@@ -32,118 +31,22 @@ AI-powered grant intake &amp; eligibility automation system built for TechBridge
 
 Nonprofit organisations running grant programmes face a significant administrative burden — manually reviewing applications, checking eligibility, communicating with applicants, and tracking submissions across scattered spreadsheets and inboxes.
 
-This project delivers a **fully automated, AI-powered grant management system** built in **Make.com** for the **TechBridge Foundation Community Innovation Grant**.
+This project delivers a **fully automated, AI-powered grant management system** built in **Make.com** for the **TechBridge Foundation Community Innovation Grant** — handling everything from initial intake to CRM pipeline management.
 
-### The Problem
-| Challenge | Impact |
-|-----------|--------|
-| Manual eligibility screening | Hours wasted per application |
-| Inconsistent decisions | Human error and bias |
-| Delayed applicant communication | Damaged trust and reputation |
-| Scattered data | No single source of truth |
-| No pipeline visibility | Difficult reporting and decisions |
-| Zero AI assistance | Reviewers read every page from scratch |
-
-### The Solution
-A two-scenario Make.com automation that handles everything from initial intake to CRM pipeline — **saving 80%+ of staff admin time** and delivering a professional applicant experience.
-
----
-
-## 🏗 System Architecture
-
-The system is built across **two Make.com scenarios** that work together seamlessly:
-
-```
-SCENARIO 1 — Grant Eligibility Checker
-Jotform Intake → Airtable Database → Eligibility Router → Email + Status Update
-
-SCENARIO 2 — Full Application Collector
-Jotform Full App → Airtable Search → Save Data → GPT-4o Summary → Monday.com CRM → Gmail Confirmation
-```
-
-![System Workflow](Grant Eligibilty Workflow.jpg)
-
----
-
-## ✅ Scenario 1 — Grant Eligibility Checker
-
-This scenario runs automatically the moment an applicant submits the intake form.
-
-```
-Step 1 → Intake Form Received (Jotform Webhook)
-          Watches for new form submissions in real time
-
-Step 2 → Save to Database (Airtable)
-          Creates a new record with all applicant details
-
-Step 3 → Eligibility Check (Router)
-          Checks all 5 eligibility criteria automatically
-
-         ┌─────────────────────────────────┐
-         │                                 │
-    ELIGIBLE PATH                   INELIGIBLE PATH
-         │                                 │
-Step 4a → Send Eligible Email        Step 4b → Send Decline Email
-          (Personalised with                    (Lists all 5 criteria
-           full application link)               and submission reference)
-         │                                 │
-Step 5a → Update Airtable Status     Step 5b → Update Airtable Status
-          → "Eligible"                          → "Ineligible"
-```
-
-### 📧 Eligible Email includes:
-- Personalised greeting
-- Confirmation of eligibility
-- Unique full application link
-- Key dates (review deadline, decision date)
-- Submission reference ID
-
-### ❌ Ineligible Email includes:
-- Respectful decline message
-- All 5 eligibility criteria listed
-- Applicant's submission reference
-- Organisation and amount requested
-
----
-
-## 📁 Scenario 2 — Full Application Collector
-
-Triggered when an eligible applicant completes the full grant application form.
-
-```
-Step 1 → Watch for Submissions (Jotform)
-          Monitors full application form for new submissions
-
-Step 2 → Find Applicant Record (Airtable Search)
-          Locates the existing intake record by organisation name
-
-Step 3 → Save Full Application (Airtable Update)
-          Updates the record with full project details, budget,
-          outcomes, and supporting documents
-
-Step 4 → Generate AI Summary (OpenAI GPT-4o)
-          Generates a structured brief: applicant name,
-          organisation, project title, funding request,
-          and concise project description
-
-Step 5 → Store AI Summary (Airtable Update)
-          Saves the GPT-4o summary back to the Airtable record
-
-Step 6 → Create CRM Item (Monday.com)
-          Creates a new item in the Grant Program board with
-          status "Under Review", region, contact email,
-          Airtable Record ID, and scoring columns
-
-Step 7 → Send Confirmation Email (Gmail)
-          Sends "Application Received!" email with key dates,
-          application summary, and contact information
-```
+| Challenge | Solution |
+|-----------|----------|
+| Manual eligibility screening | Automated router checks all 5 criteria instantly |
+| Inconsistent decisions | Same rules applied to every applicant, every time |
+| Delayed communication | Instant personalised emails sent automatically |
+| Scattered data | Single Airtable database as source of truth |
+| No pipeline visibility | Real-time Monday.com CRM board |
+| Reviewers reading full applications | GPT-4o generates concise AI summaries |
 
 ---
 
 ## 🎯 Eligibility Criteria
 
-An applicant must meet **all five criteria** to proceed to the full application:
+An applicant must meet **all five criteria** to proceed:
 
 | # | Criteria |
 |---|----------|
@@ -157,18 +60,96 @@ An applicant must meet **all five criteria** to proceed to the full application:
 
 ## 🛠 Tech Stack
 
-| Tool | Purpose | Link |
-|------|---------|------|
-| **Make.com** | Automation platform — runs both scenarios | [make.com](https://make.com) |
-| **Jotform** | Intake form and full application form | [jotform.com](https://jotform.com) |
-| **Airtable** | Central database for all submissions | [airtable.com](https://airtable.com) |
-| **OpenAI GPT-4o** | AI-generated application summaries | [openai.com](https://openai.com) |
-| **Monday.com** | CRM pipeline for grant review | [monday.com](https://monday.com) |
-| **Gmail** | Automated email communications | [gmail.com](https://gmail.com) |
+| Tool | Purpose |
+|------|---------|
+| **Make.com** | Automation platform — runs both scenarios |
+| **Jotform** | Intake form and full grant application form |
+| **Airtable** | Central database for all submissions and statuses |
+| **OpenAI GPT-4o** | AI-generated application summaries for reviewers |
+| **Monday.com** | CRM pipeline for grant review and scoring |
+| **Gmail** | Automated email communications to applicants |
 
 ---
 
-## 🏆 Key Results
+## ✅ Scenario 1 — Grant Eligibility Checker
+
+The first Make.com scenario runs the moment an applicant submits the intake form. It saves their details to Airtable, runs the eligibility check, and automatically routes them to either the eligible or ineligible path.
+
+### 📝 Step 1 — Grant Intake Form (Jotform)
+Applicants complete a short intake form providing contact details, organisation name, state, nonprofit status, years operating, and funding request amount.
+
+![Intake Form 1](Form%20Intake%201.JPG)
+![Intake Form 2](Form%20Intake%202.JPG)
+
+---
+
+### ⚙️ Step 2 — Scenario 1 Make.com Workflow Canvas
+Once submitted, Make.com triggers instantly — saving the record to Airtable and routing the applicant through the eligibility check router.
+
+![Scenario 1 Workflow](Grant%20Eligibilty%20Workflow.jpg)
+
+---
+
+### ✅ Step 3 — Eligible Path: Automated Email
+Applicants who pass all 5 criteria instantly receive a personalised email confirming eligibility, with a unique full application link, key review dates, and submission reference ID.
+
+![Eligible Email](Grant%20Eligibilty%20Email.jpg)
+
+---
+
+### ❌ Step 4 — Ineligible Path: Workflow & Decline Email
+Applicants who do not meet the criteria are routed to the fallback path — a decline email is sent automatically listing all 5 eligibility criteria and their submission reference.
+
+![Ineligibility Workflow](Grant%20Ineligibility%20workflow.jpg)
+
+![Ineligible Email](Grant%20Ineligibility%20Email.jpg)
+
+---
+
+## 📁 Scenario 2 — Full Application Collector
+
+Eligible applicants complete the full grant application form. This triggers the second Make.com scenario which captures all data, generates an AI summary, creates a CRM record, and sends a confirmation email.
+
+### 📝 Step 1 — Full Grant Application Form (Jotform)
+The full application collects project title, long description, expected outcomes, total budget, itemised budget breakdown, and supporting document uploads.
+
+![Full Application 1](Full%20Application%201.jpg)
+![Full Application 2](Full%20Application%202.jpg)
+
+---
+
+### ⚙️ Step 2 — Scenario 2 Make.com Workflow Canvas
+Make.com watches for new full application submissions, finds the existing Airtable record, saves all data, generates an AI summary via GPT-4o, creates a Monday.com CRM item, and sends a confirmation email.
+
+![Scenario 2 Workflow](S2_Full%20Grant%20Application_updated.jpg)
+
+---
+
+### 📧 Step 3 — Application Received Confirmation Email
+Once the full application is submitted, the applicant immediately receives a professional confirmation email with key dates, application summary, and contact details.
+
+![Confirmation Email](Full%20Grant%20Application%20Email.jpg)
+
+---
+
+## 🗃️ Airtable Database
+
+Every submission — from intake through to full application and AI summary — is stored in a single Airtable database, giving the team a real-time view of all applications and their statuses.
+
+![Airtable A](Airtable%20_A.jpg)
+![Airtable B](Airtable%20B.jpg)
+
+---
+
+## 📊 Monday.com CRM Pipeline
+
+Every full application automatically creates a record in the Monday.com Grant Program board with company name, status, contact email, region, submission date, Airtable Record ID, AI summary, and scoring columns.
+
+![Monday CRM](Monday%20CRM_new.jpg)
+
+---
+
+## 🏆 Key Benefits for NGOs
 
 | # | Benefit | Impact |
 |---|---------|--------|
@@ -180,45 +161,13 @@ An applicant must meet **all five criteria** to proceed to the full application:
 
 ---
 
-## 📸 Screenshots
-
-### 🔁 Scenario 1 — Grant Eligibility Checker Workflow
-![Scenario 1 Workflow](Grant%20Eligibilty%20Workflow.jpg)
-
-### 🔁 Scenario 2 — Full Application Collector Workflow
-![Scenario 2 Workflow](S2_Full%20Grant%20Application_updated.jpg)
-
-### 📝 Grant Intake Form (Jotform)
-![Intake Form 1](Form%20Intake%201.JPG)
-![Intake Form 2](Form%20Intake%202.JPG)
-
-### ✅ Eligible Email
-![Eligible Email](Grant%20Eligibilty%20Email.jpg)
-
-### ❌ Ineligible Email
-![Ineligible Email](Grant%20Ineligibility%20Email.jpg)
-
-### 🗃️ Airtable Database
-![Airtable A](Airtable%20_A.jpg)
-![Airtable B](Airtable%20B.jpg)
-
-### 📊 Monday.com CRM Pipeline
-![Monday CRM](Monday%20CRM_new.jpg)
-
-### 📧 Full Application & Confirmation Email
-![Full Application 1](Full%20Application%201.jpg)
-![Full Application 2](Full%20Application%202.jpg)
-![Confirmation Email](Full%20Grant%20Application%20Email.jpg)
-
----
-
 ## 👩‍💻 Author
 
 **Gloria Njorteah**
 AI & Automation Specialist
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/glorianjorteah)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/glorianjorteah)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Glorious75)
 
 ---
 
