@@ -1,7 +1,8 @@
 # Make.com Grant Automation: From Intake to AI-Powered CRM Pipeline
-AI-powered grant intake &amp; eligibility automation system built for TechBridge Foundation using Make.com, Jotform, Airtable, OpenAI GPT-4o, Monday.com &amp; Gmail. Automates eligibility screening, AI summarisation and CRM pipeline management — saving nonprofits 80%+ admin time.
 
-> **Built for TechBridge Foundation | Prepared by Gloria Njorteah**
+**Built for TechBridge Foundation | Prepared by Gloria Njorteah**
+
+AI-powered grant intake &amp; eligibility automation system built for TechBridge Foundation using Make.com, Jotform, Airtable, OpenAI GPT-4o, Monday.com &amp; Gmail. Automates eligibility screening, AI summarisation and CRM pipeline management — saving nonprofits 80%+ admin time.
 
 ![Make.com](https://img.shields.io/badge/Make.com-6D00CC?style=for-the-badge&logo=make&logoColor=white)
 ![Jotform](https://img.shields.io/badge/Jotform-FF6100?style=for-the-badge&logo=jotform&logoColor=white)
@@ -60,7 +61,7 @@ SCENARIO 2 — Full Application Collector
 Jotform Full App → Airtable Search → Save Data → GPT-4o Summary → Monday.com CRM → Gmail Confirmation
 ```
 
-![System Workflow](./screenshots/combined_workflows.jpg)
+![System Workflow](Grant Eligibilty Workflow.jpg)
 
 ---
 
@@ -181,28 +182,33 @@ An applicant must meet **all five criteria** to proceed to the full application:
 
 ## 📸 Screenshots
 
-### Scenario 1 & 2 — Make.com Workflow Canvas
-![Combined Workflows](./screenshots/combined_workflows.jpg)
+### 🔁 Scenario 1 — Grant Eligibility Checker Workflow
+![Scenario 1 Workflow](Grant%20Eligibilty%20Workflow.jpg)
 
-### Grant Intake Form (Jotform)
-![Intake Form](./screenshots/intake_form.jpg)
+### 🔁 Scenario 2 — Full Application Collector Workflow
+![Scenario 2 Workflow](S2_Full%20Grant%20Application_updated.jpg)
 
-### Eligible Email
-![Eligible Email](./screenshots/eligible_email.jpg)
+### 📝 Grant Intake Form (Jotform)
+![Intake Form 1](Form%20Intake%201.JPG)
+![Intake Form 2](Form%20Intake%202.JPG)
 
-### Ineligible Email
-![Ineligible Email](./screenshots/ineligible_email.jpg)
+### ✅ Eligible Email
+![Eligible Email](Grant%20Eligibilty%20Email.jpg)
 
-### Airtable Database
-![Airtable](./screenshots/airtable_database.jpg)
+### ❌ Ineligible Email
+![Ineligible Email](Grant%20Ineligibility%20Email.jpg)
 
-### Monday.com CRM Pipeline
-![Monday CRM](./screenshots/monday_crm.jpg)
+### 🗃️ Airtable Database
+![Airtable A](Airtable%20_A.jpg)
+![Airtable B](Airtable%20B.jpg)
 
-### Application Received Confirmation Email
-![Confirmation Email](./screenshots/confirmation_email.jpg)
+### 📊 Monday.com CRM Pipeline
+![Monday CRM](Monday%20CRM_new.jpg)
 
-> 📁 Add your screenshots to a `/screenshots` folder in this repository and update the paths above.
+### 📧 Full Application & Confirmation Email
+![Full Application 1](Full%20Application%201.jpg)
+![Full Application 2](Full%20Application%202.jpg)
+![Confirmation Email](Full%20Grant%20Application%20Email.jpg)
 
 ---
 
