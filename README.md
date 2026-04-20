@@ -1,6 +1,5 @@
 # Make.com Grant Automation: From Intake to AI-Powered CRM Pipeline
 AI-powered grant intake &amp; eligibility automation system built for TechBridge Foundation using Make.com, Jotform, Airtable, OpenAI GPT-4o, Monday.com &amp; Gmail. Automates eligibility screening, AI summarisation and CRM pipeline management — saving nonprofits 80%+ admin time.
-# ⚡ Make.com Grant Automation: From Intake to AI-Powered CRM Pipeline
 
 > **Built for TechBridge Foundation | Prepared by Gloria Njorteah**
 
